@@ -1,7 +1,7 @@
 {
   "name": "item-manager-backend",
   "version": "1.0.0",
-  "description": "Backend API for the MERN Item Manager Lab Test",
+  "description": "Backend API for the MERN Item Manager Lab_Test",
   "main": "server.js",
   "type": "module",
   "scripts": {
