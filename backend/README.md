@@ -1,6 +1,7 @@
 # Backend - Item Manager Lab Test
 
 ## Setup
+
 1. Open a terminal inside the backend folder.
 2. Run:
    ```bash
@@ -14,8 +15,11 @@
    ```
 
 ## API Endpoints
+
 - `GET /api/items`
 - `GET /api/items/:id`
 - `POST /api/items`
 - `PUT /api/items/:id`
 - `DELETE /api/items/:id`
+
+update the itemController.js, Item.js files
