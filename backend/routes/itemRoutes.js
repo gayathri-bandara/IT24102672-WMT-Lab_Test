@@ -1,7 +1,7 @@
 import express from "express";
 import { createItem, getItems, getItemById, updateItem, deleteItem } from "../controllers/itemController.js";
 
-const router = express.Router();
+const router = express.Router(); //
 
 router.post("/", createItem);
 router.get("/", getItems);
