@@ -30,7 +30,10 @@ function EditItemPage() {
   const handleUpdate = async (formData) => {
     try {
       console.log("Updating item with data:", formData);
-      const response = await updateItem(id, formData);
+      const response = await updateItem(id, {
+        ...formData,
+        discountPercentage: Number(formData.discountPercentage)
+      });
       console.log("Item updated successfully:", response.data);
       alert("Item updated successfully!");
       navigate("/");

@@ -19,6 +19,7 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
     if (!formData.category.trim()) newErrors.category = "Category is required";
     if (!formData.price || formData.price <= 0) newErrors.price = "Price must be greater than 0";
     if (!formData.description.trim()) newErrors.description = "Description is required";
+    if (formData.discountPercentage < 0 || formData.discountPercentage > 100) newErrors.discountPercentage = "Discount must be between 0 and 100";
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -88,6 +89,19 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
         onChange={handleChange}
         placeholder="Enter image URL (optional)"
       />
+
+      <label>Discount Percentage (%)</label>
+      <input
+        type="number"
+        name="discountPercentage"
+        value={formData.discountPercentage}
+        onChange={handleChange}
+        placeholder="Enter discount percentage (0-100)"
+        step="0.01"
+        min="0"
+        max="100"
+      />
+      {errors.discountPercentage && <p className="form-error">{errors.discountPercentage}</p>}
 
       <button className="btn primary" type="submit">{submitText}</button>
     </form>

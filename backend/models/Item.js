@@ -20,6 +20,12 @@ const itemSchema = new mongoose.Schema({
   imageUrl: {
     type: String,
     default: "",
+  },
+  discountPercentage: {
+    type: Number,
+    default: 0,
+    min: 0,
+    max: 100
   }
 }, { timestamps: true });
 

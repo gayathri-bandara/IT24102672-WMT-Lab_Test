@@ -9,7 +9,10 @@ function AddItemPage() {
   const handleSubmit = async (formData) => {
     try {
       console.log("Submitting form data:", formData);
-      const response = await createItem(formData);
+      const response = await createItem({
+        ...formData,
+        discountPercentage: Number(formData.discountPercentage)
+      });
       console.log("Item created successfully:", response.data);
       alert("Item added successfully!");
       navigate("/");
@@ -30,6 +33,7 @@ function AddItemPage() {
             price: "",
             description: "",
             imageUrl: "",
+            discountPercentage: "",
           }}
           submitText="Add Item"
           onSubmit={handleSubmit}

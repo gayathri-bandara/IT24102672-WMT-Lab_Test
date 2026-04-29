@@ -3,7 +3,7 @@ import Item from "../models/Item.js";
 // CREATE item
 export const createItem = async (req, res) => {
   try {
-    const { name, category, price, description, imageUrl } = req.body;
+    const { name, category, price, description, imageUrl, discountPercentage } = req.body;
 
     // Validate required fields
     if (!name || !category || !price || !description) {
@@ -15,7 +15,8 @@ export const createItem = async (req, res) => {
       category,
       price: Number(price),
       description,
-      imageUrl: imageUrl || ""
+      imageUrl: imageUrl || "",
+      discountPercentage: discountPercentage || 0
     });
 
     const savedItem = await item.save();
@@ -51,10 +52,10 @@ export const getItemById = async (req, res) => {
 // UPDATE item
 export const updateItem = async (req, res) => {
   try {
-    const { name, category, price, description, imageUrl } = req.body;
+    const { name, category, price, description, imageUrl, discountPercentage } = req.body;
     const item = await Item.findByIdAndUpdate(
       req.params.id,
-      { name, category, price, description, imageUrl },
+      { name, category, price, description, imageUrl, discountPercentage },
       { new: true }
     );
     if (!item) return res.status(404).json({ message: "Item not found" });
